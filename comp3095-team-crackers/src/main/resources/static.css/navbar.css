@@ -1,0 +1,160 @@
+
+
+.navbarRow{
+    width: 100%;
+    text-align: center;
+    background-color: steelblue;
+    position: fixed;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    z-index: 12;
+}
+
+.containerNavbar {
+    height: 78px;
+    background-color: steelblue;
+    display: inline-flex;
+    align-items: center;
+    margin: auto;
+}
+
+.containerNavbar .logo {
+    max-width: 250px;
+    padding: 0 10px;
+}
+
+.containerNavbar .logo a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 60px;
+}
+
+.containerNavbar .logo a img {
+    max-width: 100%;
+    max-height: 98px;
+}
+
+.containerNavbar .navbar {
+    display: inline-flex;
+    padding: 0 10px;
+    margin-left: 100px;
+    margin-top: 40px;
+}
+
+.containerNavbar .navbar ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: auto;
+    padding: 0;
+}
+
+.containerNavbar .navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    position: relative;
+    bottom: 18px;
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    cursor: pointer;
+    padding: 0 20px;
+}
+
+.containerNavbar .navbar ul li a:hover {
+    color: black;
+    background-color: skyblue !important
+}
+
+.containerNavbar .navbar ul .close {
+    display: none;
+    text-align: right;
+    padding: 10px;
+}
+
+.containerNavbar .navbar ul .close span {
+    font-size: 40px;
+    display: inline-block;
+    border: 1px solid #cccccc;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.containerNavbar .navbar .icon-bar {
+    padding: 18px 8px;
+    width: 50px;
+    height: 60px;
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.containerNavbar .navbar .icon-bar i {
+    background-color: #ffffff;
+    height: 2px;
+}
+
+.footerRow{
+    width: 100%;
+}
+
+
+
+.dropdown-content-footer a{
+    display: block;
+}
+
+.dropdown-footer:hover .dropdown-content-footer {
+    display: block;
+}
+
+.mainBody{
+    display: flex;
+}
+
+.sidebar-ad {
+    width: 250px;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 2px;
+    /*height: 1200px;*/
+    /*border: 6px solid black !important;*/
+}
+
+.adContent {
+    text-align: center;
+    width: 100%;
+    padding: 8px;
+    /*border: 2px solid black !important;*/
+}
+
+.full-widthAd {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    /*border: 6px solid black !important;*/
+}
+
+.nextBtn{
+    float: right !important;
+}
+
+.previousBtn{
+    float: left !important;
+}
+

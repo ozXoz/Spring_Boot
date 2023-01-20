@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta name="author" content="Safa Aru - 101331910">
+  <meta name="author2" content="Hakan Inel - 101213098">
+  <meta name="author3" content="Onur Korkmaz - 101303363">
+  <meta charset="UTF-8">
+  <title>Profile</title>
+  <th:block th:include="header"></th:block>
+</head>
+<body>
+<div class="bg-image" style="background-image: url('https://mdbootstrap.com/img/new/standard/city/078.webp'); height: 50vh;">
+<div class='main'>
+  <section class="content">
+    <div class="errorMsgDiv" style="padding: 24px;width: fit-content; color: white !important;color: linen !important;">
+      <h2 class="lineHeight">Profile</h2>
+    </div>
+  </section>
+
+    <table class="heavyTable">
+      <tr>
+        <th>Full Name</th>
+        <td th:text="${user.firstName+' '+user.lastName}"></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td th:text="${user.username}"></td>
+      </tr>
+      <tr>
+        <th>Account Status</th>
+        <td th:text="${user.status}"></td>
+      </tr>
+      <tr>
+        <th>Account Created On</th>
+        <td th:text="${user.createdDate}"></td>
+      </tr>
+    </table>
+</div>
+</div>
+</body>
+</html>
