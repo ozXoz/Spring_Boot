@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="author" content="Safa Aru - 101331910">
+    <meta name="author2" content="Hakan Inel - 101213098">
+    <meta name="author3" content="Onur Korkmaz - 101303363">
+    <meta name="author4" content="Ahmet Buykbas - 101304595">
+    <meta charset="UTF-8">
+    <title>Add Event</title>
+    <th:block th:include="header"></th:block>
+</head>
+<body>
+<div class='main'>
+    <div class="errorMsgDiv">
+        <div class="errorMsg">
+            <br><br>
+            <h1 style="padding-bottom: 0px; padding-left: 40px;">Add New Event Details</h1>
+            <br>
+            <section class="content">
+                <div class="s003">
+                    <form th:object="${event}" th:action="@{/add-event}" method="post">
+                        <label>Event name </label>
+                        <div class="inner-form">
+                            <div class="input-field second-wrap">
+                                <input type="text"   name="name" th:field="${event.plan}" required />
+                            </div>
+                        </div>
+                        <br>
+                        <input type="submit" class="button" style="color: white" value="Add Event" />
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+</body>
+</html>

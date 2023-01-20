@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="author" content="Safa Aru - 101331910">
+    <meta name="author2" content="Hakan Inel - 101213098">
+    <meta name="author3" content="Onur Korkmaz - 101303363">
+    <meta name="author4" content="Ahmet Buykbas - 101304595">
+    <meta charset="UTF-8">
+    <title>All Recipes</title>
+    <th:block th:include="header"></th:block>
+</head>
+    <body>
+        <div class='main'>
+            <section class="content">
+                <div class="errorMsgDiv" style="padding: 24px;width: fit-content; color: white !important;color: linen !important;">
+                    <h2 class="lineHeight">All Recipes</h2>
+
+                </div>
+            </section>
+
+            <section class="content">
+                <div class="pricing-table">
+                    <p style="text-align: center" th:if="${recipes == null or #arrays.isEmpty(recipes)}"><br>There is no recipe added yet</p>
+                    <div class="pricing-item errorMsgDiv" th:if="${not #arrays.isEmpty(recipes) and (recipe !=null or not recipe =='')}" th:each="recipe : ${recipes}">
+                        <h3 class="lineHeight" th:text="${recipe.name}"></h3>
+                        <div class="pricing-features">
+                            <p th:text="${recipe.description}"></p>
+                        </div>
+                        <div class="pricing-features lineHeight" >
+                            <b>Ingredients</b><br><br>
+                            <span th:text="${recipe.ingredients}"></span>
+
+                            <div class="pricing-features lineHeight" >
+                                <br><br><hr>
+                                <a th:href="'/addFav/'+${recipe.id}" class="button buttonAdd2">Add Favourite</a>
+
+                                <a th:href="'/view-ingredients/'+${recipe.id}" class="button buttonView">View Ingredients</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>

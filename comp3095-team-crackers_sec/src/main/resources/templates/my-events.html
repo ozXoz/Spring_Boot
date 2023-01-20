@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="author" content="Safa Aru - 101331910">
+  <meta name="author2" content="Hakan Inel - 101213098">
+  <meta name="author3" content="Onur Korkmaz - 101303363">
+  <meta name="author4" content="Ahmet Buykbas - 101304595">
+  <meta charset="UTF-8">
+  <title>My Recipes</title>
+  <th:block th:include="header"></th:block>
+  <th:block th:include="userNav"></th:block>
+</head>
+  <body>
+    <div class='main'>
+      <section class="content">
+        <small><a class="button" href="/add-event">Add Event</a></small>
+
+      </section>
+
+      <section class="content">
+        <div class="pricing-table">
+          <p style="text-align: center" th:if="${events == null or #arrays.isEmpty(events)}"><br>There is no events added yet</p>
+          <div class="pricing-item errorMsgDiv" th:if="${not #arrays.isEmpty(events)}" th:each="event : ${events}" >
+            <h3 class="lineHeight" th:text="${event.plan}"></h3>
+
+            <div class="pricing-features lineHeight" >
+              <br><br><hr>
+              <a th:href="'/update-event/'+${event.id}" class="button buttonUpdate">Update</a>
+              <a th:href="'/delete-events/'+${event.id}" class="button buttonDelete">Delete</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

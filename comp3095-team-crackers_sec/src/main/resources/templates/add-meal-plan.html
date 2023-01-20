@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta name="author" content="Safa Aru - 101331910">
+    <meta name="author2" content="Hakan Inel - 101213098">
+    <meta name="author3" content="Onur Korkmaz - 101303363">
+    <meta name="author4" content="Ahmet Buykbas - 101304595">
+    <meta charset="UTF-8">
+    <title>Plan Your Meal</title>
+    <th:block th:include="header"></th:block>
+</head>
+<body>
+<div class="bg-image" style="background-image: url('https://mdbootstrap.com/img/new/standard/city/078.webp'); height: 50vh;">
+<div class='main'>
+    <div class="errorMsgDiv">
+        <div class="errorMsg">
+            <h1 style="padding-bottom: 0px; padding-left: 40px;">Plan Your Meal</h1>
+            <br>
+            <section class="content">
+                <div class="s003">
+                    <form th:object="${planMeal}" th:action="@{/add-meal-plan}" method="post">
+                        <label>Select Date </label>
+                        <div class="inner-form">
+                            <div class="input-field second-wrap">
+                                    <input id="dateInput" type="date" placeholder="Date" name="date" th:field="${planMeal.date}" required />
+                            </div>
+                        </div>
+                        <label>BreakFast </label>
+                        <div class="inner-form">
+                            <div class="input-field second-wrap">
+                                <input type="text" placeholder="Breakfast"  name="breakfast" th:field="${planMeal.breakfast}" required />
+                            </div>
+                        </div>
+                        <label>Lunch </label>
+                        <div class="inner-form">
+                            <div class="input-field second-wrap">
+                                <input type="text" placeholder="Lunch"  name="lunch" th:field="${planMeal.lunch}" required />
+                            </div>
+                        </div>
+                        <label>Dinner </label>
+                        <div class="inner-form">
+                            <div class="input-field second-wrap">
+                                <input type="text" placeholder="Dinner"  name="dinner" th:field="${planMeal.dinner}" required />
+                            </div>
+                        </div>
+                        <br>
+                        <input type="submit" class="button" value="Add Plan" />
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<script>
+    var dateObj = new Date();
+    var month = dateObj.getUTCMonth() + 1;
+    var day = dateObj.getUTCDate();
+    var year = dateObj.getUTCFullYear();
+    var newdate = year + "-" + month + "-" + day;
+    document.getElementById("dateInput").min = newdate;
+
+    dateObj.setDate(dateObj.getDate() + 7);
+    var month = dateObj.getUTCMonth() + 1;
+    var day = dateObj.getUTCDate();
+    var year = dateObj.getUTCFullYear();
+    var newdate = year + "-" + month + "-" + day;
+    document.getElementById("dateInput").max = newdate;
+</script>
+</div>
+</body>
+</html>

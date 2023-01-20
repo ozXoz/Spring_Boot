@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="author" content="Safa Aru - 101331910">
+  <meta name="author2" content="Hakan Inel - 101213098">
+  <meta name="author3" content="Onur Korkmaz - 101303363">
+  <meta name="author4" content="Ahmet Buykbas - 101304595">
+  <meta charset="UTF-8">
+  <title>Update Recipe</title>
+  <th:block th:include="header"></th:block>
+</head>
+  <body>
+    <div class='main'>
+      <div class="errorMsgDiv">
+        <div class="errorMsg">
+          <h1 style="padding-bottom: 0px; padding-left: 40px;">Ingredients Details</h1>
+          <br>
+          <section class="content">
+            <div class="s003">
+              <form th:object="${recipe}" th:action="@{/all-recipes}" method="get">
+                <input hidden type="text"  name="id" th:field="${recipe.id}" />
+                <label>Recipe Name </label>
+                <div class="inner-form">
+                  <div class="input-field second-wrap">
+                    <p type="text" placeholder="Recipe Name"  name="name" th:text="${recipe.name}" required></p>
+                  </div>
+                </div>
+                <label>Description </label>
+                <div class="inner-form">
+                  <div class="input-field second-wrap">
+                    <p type="text" placeholder="Description"  name="description" th:text="${recipe.description}" required></p>
+                  </div>
+                </div>
+                <label>Ingredients </label>
+                <div class="inner-form">
+                  <div class="input-field second-wrap">
+                    <p type="text" placeholder="Write ingredients"  name="ingredients" th:text="${recipe.ingredients}" required></p>
+                  </div>
+                </div>
+                <br>
+                <div class="pricing-features lineHeight" >
+                  <br><br><hr>
+                  <a  th:href="'/addFav/'+${recipe.id}" class="button buttonAdd2">Add Favourite</a>
+                  <a th:href="'/shoppingCart/addProduct/'+${recipe.id}" class="button buttonAdd2">Add Cart</a>
+                  <input type="submit" class="button" value="Back" />
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

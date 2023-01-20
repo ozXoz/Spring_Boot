@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="author" content="Safa Aru - 101331910">
+    <meta name="author2" content="Hakan Inel - 101213098">
+    <meta name="author3" content="Onur Korkmaz - 101303363">
+    <meta name="author4" content="Ahmet Buykbas - 101304595">
+    <meta charset="UTF-8">
+    <title>You Meal Plans</title>
+    <th:block th:include="header"></th:block>
+</head>
+<body>
+<div class="bg-image" style="background-image: url('https://mdbootstrap.com/img/new/standard/city/078.webp'); height: 50vh;">
+<div class='main'>
+    <section class="content">
+        <div class="errorMsgDiv" style="padding: 24px;width: fit-content; color: white !important;color: linen !important;">
+            <h2 class="lineHeight">You Meal Plans</h2>
+            <br>
+            <small><a class="button" href="/add-meal-plan">Add Meal Plan</a></small>
+        </div>
+    </section>
+
+    <section th:if="${not #arrays.isEmpty(mealPlans) and (planMeal !=null or not planMeal =='')}" th:each="planMeal : ${mealPlans}">
+    <table class="heavyTable">
+        <tr>
+            <th>Date</th>
+            <td th:text="${planMeal.date}"></td>
+        </tr>
+        <tr>
+            <th>Breakfast</th>
+            <td th:text="${planMeal.breakfast}"></td>
+        </tr>
+        <tr>
+            <th>Lunch</th>
+            <td th:text="${planMeal.lunch}"></td>
+        </tr>
+        <tr>
+            <th>Dinner</th>
+            <td th:text="${planMeal.dinner}"></td>
+        </tr>
+    </table>
+        <br>
+        <section class="content">
+        <a class="button" th:href="'/delete-meal-plan/'+${planMeal.id}">Delete Plan</a>
+        </section>
+    </section>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="author" content="Safa Aru - 101331910">
+  <meta name="author2" content="Hakan Inel - 101213098">
+  <meta name="author3" content="Onur Korkmaz - 101303363">
+  <meta name="author4" content="Ahmet Buykbas - 101304595">
+  <meta charset="UTF-8">
+  <title>Profile</title>
+  <th:block th:include="header"></th:block>
+  <th:block th:include="userNav"></th:block>
+</head>
+  <body>
+    <div class='main'>
+      <section class="content">
+        <p >You will be logged out if you change details. You need to login with new UserName and Password</p>
+    </section>
+    </div>
+    <div class='main'>
+      <div class="errorMsgDiv">
+        <div class="errorMsg">
+
+          <br>
+          <section class="content">
+            <div class="s003">
+              <form th:object="${user}" th:action="@{/update-profile}" method="post">
+                <input hidden type="text"  name="id" th:field="${user.id}" />
+                <label>First Name </label>
+                <div class="inner-form">
+                  <div class="input-field second-wrap">
+                    <input type="text"  name="firstName" th:field="${user.firstName}" required />
+                  </div>
+                </div>
+                <label>Last Name </label>
+                <div class="inner-form">
+                  <div class="input-field second-wrap">
+                    <input type="text"  name="lastName" th:field="${user.lastName}" required />
+                  </div>
+                </div>
+                <label>UserName </label>
+                <div class="inner-form">
+                  <div class="input-field second-wrap">
+                    <input type="text"  name="username" th:field="${user.username}" required />
+                  </div>
+                </div>
+                <label>Password </label>
+                <div class="inner-form">
+                  <div class="input-field second-wrap">
+                    <input type="text"  name="password"  required />
+                  </div>
+                </div>
+                <br>
+                <input type="submit" class="button buttonUpdate" value="Update User" th:href="@{'/login/' + ${user.username}+'/'+ ${user.password}}" />
+                <a th:href="'/view-profile'" class="button buttonDelete">Cancel</a>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

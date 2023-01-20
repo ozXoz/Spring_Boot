@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="author" content="Safa Aru - 101331910">
+    <meta name="author2" content="Hakan Inel - 101213098">
+    <meta name="author3" content="Onur Korkmaz - 101303363">
+    <meta name="author4" content="Ahmet Buykbas - 101304595">
+  <meta charset="UTF-8">
+    <title>My Recipes</title>
+    <th:block th:include="header"></th:block>
+    <th:block th:include="userNav"></th:block>
+</head>
+    <body>
+        <div class='main'>
+            <section class="content">
+                <small><a class="button" style="background-color: #50c058; color: white" href="/add-recipe" >Add Recipe</a></small>
+
+            </section>
+
+            <section class="content">
+                <div class="pricing-table">
+                    <p style="text-align: center" th:if="${recipes == null or #arrays.isEmpty(recipes)}"><br>There is no recipe added yet</p>
+                    <div class="pricing-item errorMsgDiv" th:if="${not #arrays.isEmpty(recipes)}" th:each="recipe : ${recipes}" th:href="${'/recipe-details/'+recipe.id}">
+                        <h3 class="pricing" th:text="${recipe.name}"></h3>
+                        <div class="pricing">
+                            <p th:text="${recipe.description}"></p>
+                        </div>
+                        <div class="pricing-features lineHeight" >
+                            <b>Ingredients</b>
+                            <span th:text="${recipe.ingredients}"></span>
+                            <br><br><hr>
+                            <button class="button" style="background-color: #87cefa; color: white !important">
+                                <a th:href="'/update-recipe/'+${recipe.id}">Update</a>
+                            </button>
+                            <button class="button" style="background-color: red; color: white !important">
+                                <a th:href="'/delete-recipes/'+${recipe.id}">Delete</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>

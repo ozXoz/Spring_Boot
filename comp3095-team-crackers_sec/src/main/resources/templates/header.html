@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:background-image="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="author" content="Safa Aru - 101331910">
+    <meta name="author2" content="Hakan Inel - 101213098">
+    <meta name="author3" content="Onur Korkmaz - 101303363">
+    <meta name="author4" content="Ahmet Buykbas - 101304595">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="/static.css/custom.css" rel="stylesheet"  />
+    <link href="/static.css/main.css" rel="stylesheet"  />
+    <link href="/static.css/normalize.css" rel="stylesheet"  />
+    <link href="/static.css/navbar.css" rel="stylesheet"  />
+    <link href="/static.css/pricing.css" rel="stylesheet"  />
+<style>
+</style>
+</head>
+<body>
+<div class="bg-image" style="background-image: url('https://mdbcdn.b-cdn.net/img/new/fluid/nature/015.webp');
+                height:35vh;">
+<div class="main" th:fragment="header">
+    <div class="navbarRow">
+        <div class="containerNavbar">
+            <div class="navbar">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item"><a class="nav-link-active" style="color:white; background-color: lightslategray" href="/">HOME</a></li><br>
+                    <li class="nav-item"><a class="nav-link-active" style="color:white; background-color: lightslategray" href="/my-recipes">My Recipes</a></li><br>
+                    <li class="nav-item"><a class="nav-link-active" style="color:white; background-color: lightslategray" href="/all-recipes">All Recipes</a></li><br>
+                    <li class="nav-item"><a class="nav-link-active" style="color:white; background-color: lightslategray" href="/search-recipes">Search Recipe</a></li><br>
+                    <li class="nav-item"><a class="nav-link-active" style="color:white; background-color: lightslategray" href="/meal-plan">Meal Plan</a></li><br>
+                    <li class="nav-item"><a class="nav-link-active" style="color:white; background-color: lightslategray" href="/view-profile">Profile</a></li><br>
+
+                    <li sec:authorize="isAuthenticated()"  th:inline="text">
+                        <a style="color:white; background-color: green">Welcome,  [[${#httpServletRequest.remoteUser}]]</a>
+                    </li><br>
+                    <li sec:authorize="isAuthenticated()" >
+                        <form th:action="@{/logout}" method="post">
+                            <input class="button" type="submit" value="Logout"/>
+                        </form>
+                    </li>
+                </ul>
+         </div>
+        </div>
+    </div>
+</div>
+</div>
+    <br><br><br><br><br>
+</body>
+</html>

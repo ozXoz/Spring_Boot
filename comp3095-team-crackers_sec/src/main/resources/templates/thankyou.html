@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta name="author" content="Safa Aru - 101331910">
+    <meta name="author2" content="Hakan Inel - 101213098">
+    <meta name="author3" content="Onur Korkmaz - 101303363">
+    <meta name="author4" content="Ahmet Buykbas - 101304595">
+    <title>Account Created | Thank You</title>
+    <link href="/static.css/custom.css" rel="stylesheet"  />
+    <link href="/static.css/main.css" rel="stylesheet"  />
+    <link href="/static.css/normalize.css" rel="stylesheet"  />
+</head>
+<body><br>
+<style>
+
+    .buttons{
+        color: white;
+    }
+</style>
+<div class="bg-image" style="background-image: url('https://mdbcdn.b-cdn.net/img/new/fluid/nature/015.webp');
+                height:35vh;">
+<div class="main" style="height: 720px;">
+    <div class="errorMsgDiv">
+        <div class="errorMsg">
+            <br><br><br>
+            <h1 style="padding-bottom: 0px; padding-left: 40px;font-size: 40px;">Thank You..!</h1>
+            <p style="padding-left: 40px;text-align: left;line-height: 1.5em;">Hello <b th:text="${fullName}"></b> <br> <span th:text="${message}"></span></p>
+            <br>
+            <div class="content">
+            <div class=" download">
+                <a class="button buttons" href="/login">Login</a>
+            </div><br>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

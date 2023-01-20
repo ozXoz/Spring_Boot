@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="author" content="Safa Aru - 101331910">
+    <meta name="author2" content="Hakan Inel - 101213098">
+    <meta name="author3" content="Onur Korkmaz - 101303363">
+    <meta name="author4" content="Ahmet Buykbas - 101304595">
+    <meta charset="UTF-8">
+    <title>Search Recipes</title>
+    <th:block th:include="header"></th:block>
+</head>
+<body>
+<div class="bg-image" style="background-image: url('https://mdbootstrap.com/img/new/standard/city/078.webp'); height: 50vh;">
+<div class='main'>
+    <section class="content">
+        <div class="errorMsgDiv" style="padding: 24px;width: fit-content; color: white !important;color: linen !important;">
+            <h2 class="lineHeight">Search Recipe</h2>
+            <section class="content">
+                <div class="s003">
+            <form th:action="@{/search-recipes}" method="get">
+                <div class="inner-form">
+                    <div class="input-field second-wrap">
+                        <input type="text" placeholder="Search recipe name"  name="query" required />
+                    </div>
+                </div>
+            <br>
+            <input type="submit" class="button" value="Search" />
+            </form>
+                </div>
+        </section>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="pricing-table">
+            <p style="text-align: center" th:if="${query != null and #arrays.isEmpty(recipes)}">
+                <br>There is no recipe found against query "<span th:text="${query}"></span>"</p>
+            <div class="pricing-item errorMsgDiv" th:if="${not #arrays.isEmpty(recipes) and (recipe !=null or not recipe =='')}" th:each="recipe : ${recipes}" th:href="${'/recipe-details/'+recipe.id}">
+                <h3 class="lineHeight" th:text="${recipe.name}"></h3>
+                <div class="pricing-features">
+                    <p th:text="${recipe.description}"></p>
+                </div>
+                <div class="pricing-features lineHeight" >
+                    <b>Ingredients</b><br><br>
+                    <span th:text="${recipe.ingredients}"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</div>
+</body>
+</html>

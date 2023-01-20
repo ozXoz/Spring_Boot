@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="author" content="Safa Aru - 101331910">
+    <meta name="author2" content="Hakan Inel - 101213098">
+    <meta name="author3" content="Onur Korkmaz - 101303363">
+    <meta name="author4" content="Ahmet Buykbas - 101304595">
+    <meta charset="UTF-8">
+  <title>My Recipes</title>
+  <th:block th:include="header"></th:block>
+  <th:block th:include="userNav"></th:block>
+</head>
+<body>
+
+<div class='main'>
+  <section class="content">
+    Shopping Cart :=>
+  </section>
+
+  <section class="content">
+    <div class="pricing-table">
+      <p style="text-align: center" th:if="${products == null or #arrays.isEmpty(products)}"><br>Shopping cart is empty</p>
+        <div class="pricing-item errorMsgDiv" th:if="${not #arrays.isEmpty(products)}" th:each="product : ${products}" >
+          <h3><a th:text="${product.getKey().name}" >Title</a></h3>
+          <div class="pricing">
+            <p th:text="${product.getKey().description}">Description</p>
+          </div>
+          <div class="pricing-features lineHeight" >
+            <p th:text="${product.getKey().ingredients}">Ingredients</p>
+          </div>
+          <div class="pricing-features lineHeight" >
+            <br><br><hr>
+            <a th:href="'/shoppingCart/removeProduct/'+${product.getKey().id}" class="button buttonDelete">Remove</a>
+          </div>
+        </div>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Safa Aru - 101331910">
+  <meta name="author2" content="Hakan Inel - 101213098">
+  <meta name="author3" content="Onur Korkmaz - 101303363">
+  <meta name="author4" content="Ahmet Buykbas - 101304595">
+  <title>Add Recipe</title>
+  <th:block th:include="header"></th:block>
+</head>
+<body>
+<div class="bg-image" style="background-image: url('https://mdbootstrap.com/img/new/standard/city/078.webp'); height: 50vh;">
+<div class='main'>
+  <div class="errorMsgDiv">
+    <div class="errorMsg">
+      <h1 style="padding-bottom: 0px; padding-left: 40px;">Add New Recipe Details</h1>
+      <br>
+      <section class="content">
+        <div class="s003">
+          <form th:object="${recipe}" th:action="@{/add-recipe}" method="post">
+            <label>Recipe Name </label>
+            <div class="inner-form">
+              <div class="input-field second-wrap">
+                <input type="text" placeholder="Recipe Name"  name="name" th:field="${recipe.name}" required />
+              </div>
+            </div>
+            <label>Description </label>
+            <div class="inner-form">
+              <div class="input-field second-wrap">
+                <input type="text" placeholder="Description"  name="description" th:field="${recipe.description}" required />
+              </div>
+            </div>
+            <label>Ingredients </label>
+            <div class="inner-form">
+              <div class="input-field second-wrap">
+                <input type="text" placeholder="Write ingredients"  name="ingredients" th:field="${recipe.ingredients}" required />
+              </div>
+            </div>
+            <br>
+              <input type="submit" class="button" value="Add Recipe" />
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>

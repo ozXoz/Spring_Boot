@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html class='no-js' lang='en' xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta name="author" content="Safa Aru - 101331910">
+  <meta name="author2" content="Hakan Inel - 101213098">
+  <meta name="author3" content="Onur Korkmaz - 101303363">
+  <meta name="author4" content="Ahmet Buykbas - 101304595">
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <title>Create Account</title>
+  <link href="/static.css/custom.css" rel="stylesheet"  />
+  <link href="/static.css/main.css" rel="stylesheet"  />
+  <link href="/static.css/normalize.css" rel="stylesheet"  />
+</head>
+<body>
+<div class="bg-image" style="background-image: url('https://mdbootstrap.com/img/new/standard/city/078.webp'); height: 60vh;">
+<style>
+  .buttons{
+    color: white;
+  }
+  #msgServer{
+    color: lightpink;
+    font-size: medium;
+    text-align: center;
+  }
+
+  .contactP{
+    width: 80%;
+    margin: auto;
+    line-height: 1.8em;
+  }
+  @media only screen and (max-width: 650px) {
+    .contactP{
+      width: 100%;
+    }
+  }
+
+</style>
+<div class="main">
+  <div class="errorMsgDiv">
+    <div class="errorMsg">
+      <br><br><br>
+      <h1 style="padding-bottom: 0px; padding-left: 40px;">Create Account</h1>
+      <br>
+      <p style="font-weight: bold; background-color: red; color: white" class="contactP" id="msgServer" th:if="${status !=null}" th:text="${message}"></p><br>
+      <section class="content">
+        <div class="s003">
+          <form th:object="${user}" th:action="@{/create-account}" method="post">
+            <label>First Name </label><br>
+            <div class="inner-form">
+              <div class="input-field second-wrap">
+                <input type="text" placeholder="John" id="firstName" name="firstName" th:field="${user.firstName}" required />
+              </div>
+            </div><br>
+            <label>Last Name </label><br>
+            <div class="inner-form">
+              <div class="input-field second-wrap">
+                <input type="text" placeholder="Doe" id="lastName" name="lastName" th:field="${user.lastName}" required />
+              </div>
+            </div><br>
+            <label>Email or Username </label><br>
+            <div class="inner-form">
+              <div class="input-field second-wrap">
+                <input type="email" name="email" id="email" placeholder="johndoe@xyz.com" th:field="${user.username}" required/>
+              </div>
+            </div><br>
+            <label>Password </label><br>
+            <div class="inner-form">
+              <div class="input-field second-wrap">
+                <input type="password" name="password" id="password" placeholder="●●●●●●"  th:field="${user.password}" required/>
+              </div>
+            </div>
+            <br><br>
+            <div class="download">
+              <input type="submit" style="background-color: bisque; color: black" class="button buttons" value="Create Account" />
+            </div>
+          </form>
+        </div><br><br>
+        <small class="contactP" style="padding: 10px;color: white; background-color: #50c058">
+          <b>Already have an account? <a href="/login">Login here</a></b>
+        </small><br><br>
+      </section>
+    </div>
+  </div><br><br>
+</div>
+</div>
+</body>
+</html>
